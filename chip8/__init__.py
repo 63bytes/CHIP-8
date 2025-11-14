@@ -31,17 +31,19 @@ class _BinVal():
             self.Bits = bi
         else:
             self.Bits = b*8
-        self._VALUE = _CorrectBytes(v, self.Bits)
+        self.VALUE = _CorrectBytes(v, self.Bits)
     def Set(self, v=0):
-        self._VALUE = _CorrectBytes(v, self.Bits)
+        self.VALUE = _CorrectBytes(v, self.Bits)
     def Get(self):
-        return self._VALUE
+        return self.VALUE
     def __repr__(self):
-        return self._VALUE
+        return self.VALUE
     def __str__(self):
-        return str(self._VALUE)
+        return str(self.VALUE)
     def __int__(self):
-        return self._VALUE
+        return self.VALUE
+    def __iadd__(self, v):
+        self.VALUE += v
 
 class _ByteList():#Handle setting of _BinValues
     def __init__(self, l=8, b=1):
@@ -64,21 +66,32 @@ class CHIP_8():
     _Memory = _ByteList(l=0x1000)
     _Reg = _ByteList(l=0x10)
     _Reg_I = _ByteList(l=1,b=2)
-    _PC = _BinVal()
+    _PC = _BinVal(v=0x200, b=2)
     _SP = _BinVal()
     _ST = _ByteList(l=16,b=2)
     
     class Instrucs():
-        class NOP(metaclass=_INSTRUC):
-            hexCode=0x0000
+        ID = {
+            0x0:Instrucs.MNG,
+            0x1:Instrucs.JP,
+            0x2:Instrucs.CALL,
+            0x3:Instrucs.SE,
+            0x4:Instrucs.SNE,
+            0x5:Instrucs.SE,
+            0x6:Instrucs.LD,
+            0x7:Instrucs.ADD,
+            0x8:Instrucs.ARLG,
+            0x9:Instrucs.SNEV,
+            0xA:Instrucs.LD,
+            "1nnn":Instrucs.JP
+        }
+        class NOP():
             def __call__(self):
                 pass
         class CLS(metaclass=_INSTRUC):
-            hexCode=0x00E0
             def __call__(self):
                 pass
         class RET(metaclass=_INSTRUC):
-            hexCode=0x00EE
             def __call__(self):
                 pass
     
@@ -91,10 +104,10 @@ class CHIP_8():
             self._Memory[x] = self._ROM_DATA[x]
 
     def Cycle(self):
-        self.op[1] = self._Memory[self._PC]
-        self._PC+=1
-        self.op[2] = self._Memory[self._PC]
-        self._PC+=1
+        self.op = int(f"{self._Memory[self._PC.VALUE]:02X}{self._Memory[self._PC.VALUE+1]:02X}",16)
+        self._PC.VALUE +=2
+        
+        
 
     def DumpRam(self):
         open(self._DMP_F,"w").close
