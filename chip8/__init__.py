@@ -59,24 +59,28 @@ def hexSpilt(v):
     h = f"{v:02X}"
     return int(h[0],16), int(h[1], 16)
 
-InstrucsNH = {
-            "NOP":[0x00,1],
-            "EXIT":[0x01,1],
-            "JMP":[0x10,3],
-            "CALL":0x11,
-            "RET":0x12,
-            "SE":0x13,
-            "SNE":0x14,
-            "VSE":0x15,
-            "VSNE":0x16,
-            "JMPV":0x17,
-            "LDVB":0x20
-        }
-def GetInstrucName(n=0x0):
-    for x in InstrucsNH:
-        if InstrucsNH[x]==n:
-            return x
-    return "NOP"
+class _OPCODEs:
+    DATA = {
+        0x00:[0x00,"NOP",1],
+        0x01:[0x01,"EXIT",1],
+        0x10:[0x10,"JMP",3],
+        0x11:[0x11,"CALL",3],
+        0x12:[0x12,"RET",1],
+        0x13:[0x13,"SE",3],
+        0x14:[0x14,"SNE",3],
+        0x15:[0x15,"VSE",2],
+        0x16:[0x16,"VSNE",2],
+        0x17:[0x17,"JMPV",4],
+        0x20:[0x18,"LDVV",3]
+    }
+    def __getitem__(self,i):
+        if type(i)==int:
+            return self.DATA[i]
+        else:
+            for x in self.DATA:
+                if self.DATA[x][1]==i:
+                    return self.DATA[x]
+OpCodes = _OPCODEs()
 
 class CHIP_8():
     _Memory = _ByteList(l=0x1000)
@@ -91,10 +95,9 @@ class CHIP_8():
         d = ""
         for x in range(b):
             d = f"{d}{(self._Memory[self._PC+x]):02X}"
-        output(action="READ", d={"ad":self._PC+1,"val":self._Memory[self._PC+x]})
+        output(action="READ", d={"ad":self._PC+x,"val":self._Memory[self._PC+x]})
         if i:
             self._PC += b
-        
         return int(d,16)
 
     def NOP(self):
@@ -113,13 +116,13 @@ class CHIP_8():
         self._ST.remove(self._ST[0])
     def SE(self):
         vx = self.GetMemBytes()
-        vk = self.GetMemBytes()
-        if self._Reg[r]==v:
+        kk = self.GetMemBytes()
+        if self._Reg[vx]==kk:
             self._SKP = True
     def SNE(self):
         vx = self.GetMemBytes()
         kk = self.GetMemBytes()
-        if self._Reg[r]!=v:
+        if self._Reg[vx]!=kk:
             self._SKP = True
     def VSE(self):
         vx = self.GetMemBytes()
@@ -138,6 +141,7 @@ class CHIP_8():
     def LDVB(self):
         x = self.GetMemBytes()
         kk = self.GetMemBytes()
+        print(x)
         self._Reg[x] = kk
 
     Instrucs = {
@@ -162,9 +166,17 @@ class CHIP_8():
         self._PROGRAM_DATA = getBytes(programFile)
         for x in range(len(self._PROGRAM_DATA)):
             self._Memory[x+0x200] = self._PROGRAM_DATA[x]
+    
     def Cycle(self):
-        self.op = self.GetMemBytes()
-        output(action="DECODE",d={"val":self.op,"ins":GetInstrucName(self.op)})
+        self.op = self.GetMemBytes(i=False)
+        if self._SKP:
+            #output(action="DECODE",d={"val":"SKIP","ins":"SKIP"})
+            self._PC += OpCodes[self.op][2]
+            self._SKP = False
+            return
+        else:
+            self._PC +=  1
+        output(action="DECODE",d={"val":self.op,"ins":OpCodes[self.op][1]})
         self.Instrucs[self.op](self)
 
     def DumpRam(self):

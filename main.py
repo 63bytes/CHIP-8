@@ -3,6 +3,8 @@ from time import sleep
 import tkinter as tk
 
 HOLD = True
+def hex(i):
+    return f"{i:02X}"
 
 #Output window
 Window = tk.Tk()
@@ -13,10 +15,10 @@ readOut.pack()
 
 def output(action, d={}):
     if action=="DECODE":
-        decOut.insert("end", f"[DECODE]: {d["val"]} - {d["ins"]}" + "\n")
+        decOut.insert("end", f"[DECODE]: 0x{hex(d["val"])} - {d["ins"]}" + "\n")
         decOut.see("end")
     elif action=="READ":
-        readOut.insert("end", f"[READ]: {d["ad"]} - {d["val"]}" + "\n")
+        readOut.insert("end", f"[READ]: 0x{hex(d["ad"])} - 0x{hex(d["val"])}" + "\n")
         readOut.see("end")
 chip8.output = output
 
