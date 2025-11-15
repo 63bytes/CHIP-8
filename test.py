@@ -13,3 +13,5 @@ l={
 
 c = l[0x10]()
 print(c)
+
+int

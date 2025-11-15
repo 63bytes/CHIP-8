@@ -3,16 +3,6 @@ from pathlib import Path
 _BASE_DIR = Path(__file__).parent
 _ROM_F =  _BASE_DIR/"ROM.hex"
 
-
-class _INSTRUC(type):
-    hexCode = 0x0000
-    def __repr__(self):
-        return self.hexCode
-    def __str__(self):
-        return str(self.hexCode)
-    def __int__(self):
-        return self.hexCode
-
 def _CheckBits(v,b):
     if v>=0 and v<=(2**b)-1:
         return True
@@ -43,7 +33,9 @@ class _BinVal():
     def __int__(self):
         return self.VALUE
     def __iadd__(self, v):
-        self.VALUE += v
+        return self.VALUE + v
+    def __add__(self,v):
+        return self.VALUE + v
 
 class _ByteList():#Handle setting of _BinValues
     def __init__(self, l=8, b=1):
@@ -69,45 +61,47 @@ class CHIP_8():
     _PC = _BinVal(v=0x200, b=2)
     _SP = _BinVal()
     _ST = _ByteList(l=16,b=2)
-    
+
+    def GetMemBytes(self,b=1, i=True):
+        d = ""
+        for x in range(b):
+            d = f"{d}{(self._Memory[self._PC+(x-1)]):02X}"
+        if i:
+            self._PC += b
+        return int(d,16)
+
+
     class Instrucs():
-        ID = {
-            0x0:Instrucs.MNG,
-            0x1:Instrucs.JP,
-            0x2:Instrucs.CALL,
-            0x3:Instrucs.SE,
-            0x4:Instrucs.SNE,
-            0x5:Instrucs.SE,
-            0x6:Instrucs.LD,
-            0x7:Instrucs.ADD,
-            0x8:Instrucs.ARLG,
-            0x9:Instrucs.SNEV,
-            0xA:Instrucs.LD,
-            "1nnn":Instrucs.JP
+        ID = {}
+        def NOP():
+            pass
+        def EXIT():
+            self._PC = 0xfff
+        def JMP():
+            ad = self.GetMemBytes(b=2)
+            self._PC.Set(ad)
+        def CALL():
+            pass
+        def RET():
+            pass
+    Instrucs.ID = {
+            0x00:Instrucs.NOP,
+            0x01:Instrucs.EXIT,
+            0x10:Instrucs.JMP,
+            0x11:Instrucs.CALL,
+            0x12:Instrucs.RET
         }
-        class NOP():
-            def __call__(self):
-                pass
-        class CLS(metaclass=_INSTRUC):
-            def __call__(self):
-                pass
-        class RET(metaclass=_INSTRUC):
-            def __call__(self):
-                pass
-    
     def __init__(self, dumpFile):
         #Load ROM
-        self.op = []
         self._ROM_DATA = getBytes(_ROM_F)
         self._DMP_F = dumpFile
         for x in range(len(self._ROM_DATA)):
             self._Memory[x] = self._ROM_DATA[x]
 
     def Cycle(self):
-        self.op = int(f"{self._Memory[self._PC.VALUE]:02X}{self._Memory[self._PC.VALUE+1]:02X}",16)
-        self._PC.VALUE +=2
-        
-        
+        print(self._PC)
+        op = self.GetMemBytes()
+        self.Instrucs.ID[op]()
 
     def DumpRam(self):
         open(self._DMP_F,"w").close
