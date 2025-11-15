@@ -71,7 +71,17 @@ class _OPCODEs:
         0x15:[0x15,"VSE",2],
         0x16:[0x16,"VSNE",2],
         0x17:[0x17,"JMPV",4],
-        0x20:[0x18,"LDVV",3]
+        0x20:[0x20,"LDVV",3],
+        0x21:[0x21,"ADDB",3],
+        0x22:[0x22,"LDVV",3],
+        0x23:[0x23,"OR",2],
+        0x24:[0x24,"AND",2],
+        0x25:[0x25,"XOR",2],
+        0x26:[0x26,"ADDV",2],
+        0x27:[0x27,"SUB",2],
+        0x28:[0x28,"SHR",2],
+        0x29:[0x29,"SUBN",2],
+        0x2A:[0x2A,"SHL",2]
     }
     def __getitem__(self,i):
         if type(i)==int:
@@ -143,6 +153,14 @@ class CHIP_8():
         kk = self.GetMemBytes()
         print(x)
         self._Reg[x] = kk
+    def ADDB(self):
+        x = self.GetMemBytes()
+        kk = self.GetMemBytes()
+        self._Reg[x] += kk
+    def LDVV(self):
+        h = hexSpilt(self.GetMemBytes())
+        self._Reg[h[0]] += self._Reg[h[1]]
+
 
     Instrucs = {
             0x00:NOP,
@@ -155,7 +173,17 @@ class CHIP_8():
             0x15:VSE,
             0x16:VSNE,
             0x17:JMPV,
-            0x20:LDVB
+            0x20:LDVB,
+            0x21:ADDB,
+            0x22:LDVV,
+            0x23:OR,
+            0x24:AND,
+            0x25:XOR,
+            0x26:ADDV,
+            0x27:SUB,
+            0x28:SHR,
+            0x29:SUBN,
+            0x2A:SHL
         }
     def __init__(self, dumpFile, programFile):
         #Load ROM
