@@ -1,9 +1,34 @@
 import chip8
+from time import sleep
+import tkinter as tk
 
-c = chip8.CHIP_8("Dump.hex")
-for x in range(20):
+HOLD = True
+
+#Output window
+Window = tk.Tk()
+decOut = tk.Text(Window)
+decOut.pack()
+readOut = tk.Text(Window)
+readOut.pack()
+
+def output(action, d={}):
+    if action=="DECODE":
+        decOut.insert("end", f"[DECODE]: {d["val"]} - {d["ins"]}" + "\n")
+        decOut.see("end")
+    elif action=="READ":
+        readOut.insert("end", f"[READ]: {d["ad"]} - {d["val"]}" + "\n")
+        readOut.see("end")
+chip8.output = output
+
+c = chip8.CHIP_8("Dump.hex", "Programs/Testing.hex")
+while c.stop==False:
     c.Cycle()
+    Window.update()
+    sleep(0.5)
 c.DumpRam()
+
+if HOLD:
+    input("--EXIT--")
 
 """
 import pygame
