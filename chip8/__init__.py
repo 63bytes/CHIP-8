@@ -33,7 +33,8 @@ class _BinVal():
     def __int__(self):
         return self.VALUE
     def __iadd__(self, v):
-        return self.VALUE + v
+        self.VALUE += v
+        return self
     def __add__(self,v):
         return self.VALUE + v
 
@@ -59,37 +60,40 @@ class CHIP_8():
     _Reg = _ByteList(l=0x10)
     _Reg_I = _ByteList(l=1,b=2)
     _PC = _BinVal(v=0x200, b=2)
-    _SP = _BinVal()
-    _ST = _ByteList(l=16,b=2)
+    _ST = []
 
     def GetMemBytes(self,b=1, i=True):
         d = ""
         for x in range(b):
-            d = f"{d}{(self._Memory[self._PC+(x-1)]):02X}"
+            d = f"{d}{(self._Memory[self._PC+x]):02X}"
         if i:
             self._PC += b
         return int(d,16)
 
-
-    class Instrucs():
-        ID = {}
-        def NOP():
-            pass
-        def EXIT():
-            self._PC = 0xfff
-        def JMP():
-            ad = self.GetMemBytes(b=2)
-            self._PC.Set(ad)
-        def CALL():
-            pass
-        def RET():
-            pass
-    Instrucs.ID = {
-            0x00:Instrucs.NOP,
-            0x01:Instrucs.EXIT,
-            0x10:Instrucs.JMP,
-            0x11:Instrucs.CALL,
-            0x12:Instrucs.RET
+    def NOP(self):
+        print("NOP")
+        pass
+    def EXIT(self):
+        self._PC = 0xfff
+    def JMP(self):
+        print("JMP")
+        ad = self.GetMemBytes(b=2)
+        self._PC.Set(ad)
+    def CALL(self):
+        print("CALL")
+        ad = self.GetMemBytes(b=2)
+        self._ST.insert(0,self._PC.VALUE)
+        self._PC.Set(ad)
+    def RET(self):
+        print("RET")
+        self._PC.Set(self._ST[0])
+        self._ST.remove(self._ST[0])
+    Instrucs = {
+            0x00:NOP,
+            0x01:EXIT,
+            0x10:JMP,
+            0x11:CALL,
+            0x12:RET
         }
     def __init__(self, dumpFile):
         #Load ROM
@@ -99,9 +103,10 @@ class CHIP_8():
             self._Memory[x] = self._ROM_DATA[x]
 
     def Cycle(self):
-        print(self._PC)
+        print("------")
+        print(f"{self._PC.VALUE:02X}")
         op = self.GetMemBytes()
-        self.Instrucs.ID[op]()
+        self.Instrucs[op](self)
 
     def DumpRam(self):
         open(self._DMP_F,"w").close

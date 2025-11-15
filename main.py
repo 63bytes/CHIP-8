@@ -1,7 +1,7 @@
 import chip8
 
 c = chip8.CHIP_8("Dump.hex")
-for x in range(10):
+for x in range(20):
     c.Cycle()
 c.DumpRam()
 
