@@ -3,15 +3,17 @@ from time import sleep
 import tkinter as tk
 
 HOLD = True
+WINDOW_OUT = False
 def hex(i):
     return f"{i:02X}"
 
 #Output window
-Window = tk.Tk()
-decOut = tk.Text(Window)
-decOut.pack()
-readOut = tk.Text(Window)
-readOut.pack()
+if WINDOW_OUT:
+    Window = tk.Tk()
+    decOut = tk.Text(Window)
+    decOut.pack()
+    readOut = tk.Text(Window)
+    readOut.pack()
 
 def output(action, d={}):
     if action=="DECODE":
@@ -20,13 +22,14 @@ def output(action, d={}):
     elif action=="READ":
         readOut.insert("end", f"[READ]: 0x{hex(d["ad"])} - 0x{hex(d["val"])}" + "\n")
         readOut.see("end")
-chip8.output = output
-
+if WINDOW_OUT:
+    chip8.output = output
 c = chip8.CHIP_8("Dump.hex", "Programs/Testing.hex")
 while c.stop==False:
     c.Cycle()
-    Window.update()
-    sleep(0.5)
+    if WINDOW_OUT:
+        Window.update()
+    sleep(0.1)
 c.DumpRam()
 
 if HOLD:

@@ -1,0 +1,48 @@
+[INFO] - [READ] 0x200 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x201 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x202 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x203 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x204 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x205 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x206 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x207 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x208 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x209 - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x20A - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x20C - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x20D - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x20E - 0x00
+[INFO] - [DECODE] 0x00 - NOP
+[INFO] - [EXECUTE] NOP - No operation
+[INFO] - [READ] 0x20F - 0x01
+[INFO] - [DECODE] 0x01 - EXIT
+[CRITICAL] - [EXECUTE] EXIT - Program stoped
