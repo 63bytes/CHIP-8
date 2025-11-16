@@ -55,6 +55,7 @@ class _Byte:
         if v!=cv:
             b.LOST_PRECISION=True
         return b
+    #Arithmatic
     def __add__(self, other):
         return self._run_lmb_arith(other, lambda a,b:a+b)
     def __sub__(self, other):
@@ -63,18 +64,28 @@ class _Byte:
         return self.__add__(other)
     def __isub__(self, other):
         return self.__sub__(other)
+    #Bitwise
+    def __or__(self, other):
+        return self._run_lmb_arith(other, lambda a,b:a|b)
+    def __and__(self, other):
+        return  self._run_lmb_arith(other, lambda a,b:a&b)
+    def __xor__(self, other):
+        return self._run_lmb_arith(other, lambda a,b:a&b)
+    def __invert__(self):
+        self._Value = ~self._Value
     def __lshift__(self, other):
         return self._run_lmb_arith(other, lambda a,b:a<<b)
     def __rshift__(self, other):
         return self._run_lmb_arith(other, lambda a,b:a>>b)
+    #Comparison
     def __eq__(self, other):
         return self._run_lmb(other, lambda a,b:a==b)
     def __ne__(self, other):
         return self._run_lmb(other, lambda a,b:a!=b)
+    #Value
     def __setitem__(self,index,val):
         if index==0:
             self._Value = int(val)&self._Limit
-
 class _ByteList:
     def __init__(self,v=0,b=8,l=16):
         self._List = [_Byte(v,b) for _ in range(l)]
@@ -186,20 +197,26 @@ class CHIP_8():
     def SE(self):
         vx = self.GetMemBytes()
         kk = self.GetMemBytes()
+        logging.info(f"[EXECUTE] SE - V{vx}=={kk} - {self._Reg[vx]==kk}")
         if self._Reg[vx]==kk:
             self._SKP = True
             logging.info("[EXECUTE] SE - Skip flag set")
-        logging.info(f"[EXECUTE] SE - V{vx}=={kk} - {self._Reg[vx]==kk}")
     def SNE(self):
         vx = self.GetMemBytes()
         kk = self.GetMemBytes()
+        logging.info(f"[EXECUTE] SNE - V{vx}!={kk} - {self._Reg[vx]!=kk}")
         if self._Reg[vx]!=kk:
             self._SKP = True
+            logging.info("[EXECUTE] SNE - Skip flag set")
     def VSE(self):
-        vx = self.GetMemBytes()
-        vy = self._Reg[self.GetMemBytes()]
+        vxn = self.GetMemBytes()
+        vyn = self.GetMemBytes()
+        vx = self._Reg(vxn)
+        vy = self._Reg(vyn)
+        logging.info(f"[EXECUTE] SNE - V{vx}!={kk} - {self._Reg[vx]!=kk}")
         if vx==vy:
             self._SKP = True
+            logging.info("[EXECUTE] VSE - Skip flag set")
     def VSNE(self):
         vx = self._Reg[self.GetMemBytes()]
         vy = self._Reg[self.GetMemBytes()]
@@ -212,6 +229,7 @@ class CHIP_8():
     def LDVB(self):
         x = self.GetMemBytes()
         kk = self.GetMemBytes()
+        logging.info(f"[EXECUTE] LDVB - Set V{x:02X} to 0x{kk:02X}")
         self._Reg[x] = kk
     def ADDB(self):
         x = self.GetMemBytes()
@@ -221,7 +239,10 @@ class CHIP_8():
         h = hexSpilt(self.GetMemBytes())
         self._Reg[h[0]] == self._Reg[h[1]]
     def OR(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx|vy
     def AND(self):
         pass
     def XOR(self):
