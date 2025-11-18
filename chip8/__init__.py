@@ -1,5 +1,7 @@
 from pathlib import Path
 import logging
+import pygame
+import math
 _BASE_DIR = Path(__file__).parent
 _ROM_F =  _BASE_DIR/"ROM.hex"
 _LOG_F = _BASE_DIR/"log.txt"
@@ -70,7 +72,7 @@ class _Byte:
     def __and__(self, other):
         return  self._run_lmb_arith(other, lambda a,b:a&b)
     def __xor__(self, other):
-        return self._run_lmb_arith(other, lambda a,b:a&b)
+        return self._run_lmb_arith(other, lambda a,b:a^b)
     def __invert__(self):
         self._Value = ~self._Value
     def __lshift__(self, other):
@@ -109,6 +111,31 @@ class _StackTrace:
     def removeFirst(self):
         self._List.remove(self._List[0])
 
+class Display:
+    def __init__(self, w=64, h=32, hc=(255,255,255), lc=(0,0,0), ps=10):
+        self.WIDTH = w
+        self.HEIGHT = h
+        self.PIXEL_SIZE = ps
+        self.HC = hc
+        self.LC = lc
+        self.Data = [[1 for _ in range(self.HEIGHT)] for _ in range(self.WIDTH)]
+        self.screen = pygame.display.set_mode((self.WIDTH*self.PIXEL_SIZE, self.HEIGHT*self.PIXEL_SIZE))
+        pygame.display.set_caption("Display")
+    def Update(self):
+        pygame.event.get()
+        for y in range(self.HEIGHT):
+            for x in range(self.WIDTH):
+                if self.Data[x][y]==1:
+                    color = self.HC
+                else:
+                    color = self.LC
+                pygame.draw.rect(
+                    self.screen,
+                    color,
+                    (x * self.PIXEL_SIZE, y * self.PIXEL_SIZE, self.PIXEL_SIZE, self.PIXEL_SIZE)
+                )
+        pygame.display.flip()
+
 def getBytes(f):
     l = []
     with open(f, "rb") as File:
@@ -119,6 +146,8 @@ def getBytes(f):
 def hexSpilt(v):
     h = f"{v:02X}"
     return int(h[0],16), int(h[1], 16)
+
+
 
 class _OPCODEs:
     DATA = {
@@ -142,7 +171,11 @@ class _OPCODEs:
         0x27:[0x27,"SUB",2],
         0x28:[0x28,"SHR",2],
         0x29:[0x29,"SUBN",2],
-        0x2A:[0x2A,"SHL",2]
+        0x2A:[0x2A,"SHL",2],
+        0x30:[0x30,"LDI",3],
+        0x31:[0x31,"ADDI",2],
+        0x32:[0x32,"STV",2],
+        0x33:[0x33,"LDV",2]
     }
     def __getitem__(self,i):
         if type(i)==int:
@@ -161,6 +194,8 @@ class CHIP_8():
     _ST = _StackTrace()
     _SKP = False
     stop = False
+
+    DISPLAY_MEM = 0x50
 
     def GetMemBytes(self,b=1, i=True):
         d = ""
@@ -213,19 +248,25 @@ class CHIP_8():
         vyn = self.GetMemBytes()
         vx = self._Reg(vxn)
         vy = self._Reg(vyn)
-        logging.info(f"[EXECUTE] SNE - V{vx}!={kk} - {self._Reg[vx]!=kk}")
+        logging.info(f"[EXECUTE] SNE - V{vx}=={vy} - {self._Reg[vx]==vy}")
         if vx==vy:
             self._SKP = True
             logging.info("[EXECUTE] VSE - Skip flag set")
     def VSNE(self):
-        vx = self._Reg[self.GetMemBytes()]
-        vy = self._Reg[self.GetMemBytes()]
+        vxn = self.GetMemBytes()
+        vyn = self.GetMemBytes()
+        vx = self._Reg(vxn)
+        vy = self._Reg(vyn)
+        logging.info(f"[EXECUTE] SNE - V{vx}!={vy} - {self._Reg[vx]!=vy}")
         if vx!=vy:
             self._SKP = True
+            logging.info("[EXECUTE] VSE - Skip flag set")
     def JMPV(self):
-        vx = self._Reg[self.GetMemBytes()]
+        vxn = self.GetMemBytes()
+        vx = self._Reg[vxn]
         n = self.GetMemBytes(b=2)
         self._PC[0] = n+vx
+        logging.info(f"[EXECUTE] JMPV - PC set to {n+vx}. {vx} + {n} (V{vxn} + nnn)")
     def LDVB(self):
         x = self.GetMemBytes()
         kk = self.GetMemBytes()
@@ -235,28 +276,102 @@ class CHIP_8():
         x = self.GetMemBytes()
         kk = self.GetMemBytes()
         self._Reg[x] += kk
+        logging.info(f"[EXECUTE] ADDB - V{x} = V{x} + 0x{kk:02X} = {self._Reg[x]}")
     def LDVV(self):
         h = hexSpilt(self.GetMemBytes())
-        self._Reg[h[0]] == self._Reg[h[1]]
+        logging.info(f"[EXECUTE] LDVV - V{h[0]} = V{h[1]}")
+        self._Reg[h[0]] = self._Reg[h[1]]
     def OR(self):
         v = f"{self.GetMemBytes():02X}"
         vx = self._Reg[int(v[0],16)]
         vy = self._Reg[int(v[1],16)]
         vx[0] = vx|vy
+        logging.info(f"[EXECUTE] OR - {vx} = V{v[0]} OR V{v[1]}")
     def AND(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx & vy
+        logging.info(f"[EXECUTE] AND - {vx} = V{v[0]:02X} AND V{v[1]:02X}")
     def XOR(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx ^ vy
+        logging.info(f"[EXECUTE] XOR - {vx} = V{v[0]:02X} XOR V{v[1]:02X}")
     def ADDV(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx + vy
+        if vx[0].LOST_PRECISION:
+            self._Reg[0xf] = 1
+        else:
+            self._Reg[0xf] = 0
+        logging.info(f"[EXECUTE] ADDV - {vx} = V{v[0]:02X} + V{v[1]:02X}")
     def SUB(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx - vy
+        if vx.LOST_PRECISION:
+            self._Reg[0xf] = 1
+        else:
+            self._Reg[0xf] = 0
+            logging.warning(f"[EXECUTE] SUB - Borrowed. Vf set to 0")
+        logging.info(f"[EXECUTE] SUB - {vx} = V{v[0]:02X} - V{v[1]:02X}")
     def SHR(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx + vy
+        if not vx.LOST_PRECISION:
+            self._Reg[0xf] = 1
+        else:
+            self._Reg[0xf] = 0
+            logging.warning(f"[EXECUTE] SUB - Borrowed. Vf set to 0")
+        logging.info(f"[EXECUTE] SUB - {vx} = V{v[0]:02X} - V{v[1]:02X}")
     def SUBN(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vy - vx
+        if vx.LOST_PRECISION:
+            self._Reg[0xf] = 1
+        else:
+            self._Reg[0xf] = 0
+            logging.warning(f"[EXECUTE] SUB - Borrowed. Vf set to 0")
+        logging.info(f"[EXECUTE] SUB - {vx} = V{v[1]:02X} - V{v[0]:02X}")
     def SHL(self):
-        pass
+        v = f"{self.GetMemBytes():02X}"
+        vx = self._Reg[int(v[0],16)]
+        vy = self._Reg[int(v[1],16)]
+        vx[0] = vx + vy
+        if not vx.LOST_PRECISION:
+            self._Reg[0xf] = 1
+        else:
+            self._Reg[0xf] = 0
+            logging.warning(f"[EXECUTE] SUB - Borrowed. Vf set to 0")
+        logging.info(f"[EXECUTE] SUB - {vx} = V{v[0]:02X} - V{v[1]:02X}")
+    def LDI(self):
+        n = self.GetMemBytes(2)
+        self._Reg_I[0] = n
+        logging.info("[EXECUTE] LDI - I set")
+    def ADDI(self):
+        vxn = self.GetMemBytes()
+        vx = self._Reg[vxn]
+        self._Reg_I += vx
+        logging.info(f"[EXECUTE] ADDI - I += V{vxn}(0x{vx:02X})")
+    def STV(self):
+        vxn = self.GetMemBytes()
+        for x in range(vxn):
+            self._Memory[self._Reg_I + x] = int(self._Reg[x])
+        logging.info(f"[EXECUTE] STV - Values V0-V{vxn} stored at 0x{self._Reg_I:02X}+")
+    def LDV(self):
+        vxn = self.GetMemBytes()
+        for x in range(vxn+1):
+            self._Reg[x] = self._Memory[self._Reg_I + x]
+        logging.info(f"[EXECUTE] STV - Values V0-V{vxn} loaded from 0x{self._Reg_I:02X}+")
     def __init__(self, dumpFile, programFile):
         #Load ROM
         self.Instrucs = {
@@ -280,7 +395,11 @@ class CHIP_8():
             0x27:self.SUB,
             0x28:self.SHR,
             0x29:self.SUBN,
-            0x2A:self.SHL
+            0x2A:self.SHL,
+            0x30:self.LDI,
+            0x31:self.ADDI,
+            0x32:self.STV,
+            0x33:self.LDV
         }
         self._PROGRAM_DATA = getBytes(programFile)
         for x in range(len(self._PROGRAM_DATA)):
@@ -290,6 +409,7 @@ class CHIP_8():
         for x in range(len(self._ROM_DATA)):
             self._Memory[x] = self._ROM_DATA[x]
         self._Memory[0xfff] = 0x01
+        self.Display = Display()
         
     def Cycle(self):
         self.op = self.GetMemBytes(i=False)
@@ -304,6 +424,18 @@ class CHIP_8():
         output(action="DECODE",d={"val":self.op,"ins":OpCodes[self.op][1]})
         logging.info(f"[DECODE] 0x{self.op:02X} - {OpCodes[self.op][1]}")
         self.Instrucs[self.op]()
+        data = []
+        for bn in range(int(32*64/8)):
+            bi = self._Memory[self.DISPLAY_MEM+bn]
+            bb = f"{bi:08b}"
+            for i in bb:
+                data.append(int(i))
+        for bn in range(32*64):
+            x = math.floor(bn/32)
+            y = bn-(math.floor(bn/32)*32)
+            self.Display.Data[x][y] = data[bn]
+        self.Display.Update()
+
 
     def DumpRam(self):
         open(self._DMP_F,"w").close

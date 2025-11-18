@@ -33,7 +33,8 @@ while c.stop==False:
 c.DumpRam()
 
 if HOLD:
-    input("--EXIT--")
+    while True:
+        c.Display.Update()
 
 """
 import pygame
