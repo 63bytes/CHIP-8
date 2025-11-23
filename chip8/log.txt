@@ -1,23 +1,1693 @@
-[INFO] - [READ] 0x200 - 0x30
-[INFO] - [DECODE] 0x30 - LDI
-[INFO] - [READ] 0x201 - 0x00
-[INFO] - [READ] 0x202 - 0x00
-[INFO] - [READ] (FULL) - 0x0000
-[INFO] - [EXECUTE] LDI - I set
-[INFO] - [READ] 0x203 - 0x33
-[INFO] - [DECODE] 0x33 - LDV
-[INFO] - [READ] 0x204 - 0x05
-[INFO] - [EXECUTE] STV - Values V0-V5 loaded from 0x00+
-[INFO] - [READ] 0x205 - 0x30
-[INFO] - [DECODE] 0x30 - LDI
-[INFO] - [READ] 0x206 - 0x00
-[INFO] - [READ] 0x207 - 0x50
-[INFO] - [READ] (FULL) - 0x0050
-[INFO] - [EXECUTE] LDI - I set
-[INFO] - [READ] 0x208 - 0x32
-[INFO] - [DECODE] 0x32 - STV
-[INFO] - [READ] 0x209 - 0x05
-[INFO] - [EXECUTE] STV - Values V0-V5 stored at 0x50+
-[INFO] - [READ] 0x20A - 0x01
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 91(91&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 202(202&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 252(252&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 183(183&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 174(174&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 85(85&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 187(187&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 255(255&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 78(78&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 40(40&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 54(54&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 44(44&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 106(106&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 151(151&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 213(213&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 245(245&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 93(93&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 41(41&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 125(125&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 69(69&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 134(134&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 88(88&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 14(14&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 115(115&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 107(107&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 171(171&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 226(226&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 50(50&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 81(81&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 173(173&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 239(239&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 5(5&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 239(239&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 150(150&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 85(85&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 32(32&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 9(9&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 107(107&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 244(244&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 114(114&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 50(50&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 226(226&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 2(2&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 82(82&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 12(12&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 84(84&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 201(201&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 222(222&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 174(174&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 230(230&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 135(135&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 85(85&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 177(177&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 214(214&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 103(103&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 47(47&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 169(169&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 43(43&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 203(203&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 175(175&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 101(101&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 68(68&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 26(26&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 111(111&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 130(130&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 91(91&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 153(153&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 143(143&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 63(63&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 172(172&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 233(233&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 120(120&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 30(30&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 113(113&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 171(171&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 208(208&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 148(148&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 247(247&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 164(164&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 244(244&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 132(132&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 188(188&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 0(0&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 247(247&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 39(39&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 233(233&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 25(25&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 180(180&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 22(22&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 45(45&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 191(191&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 234(234&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 83(83&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - True
+[INFO] - [EXECUTE] SNE - Skip flag set
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [READ] 0x209 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x20A - 0x02
+[INFO] - [READ] 0x20B - 0x00
+[INFO] - [READ] (FULL) - 0x0200
+[INFO] - [EXECUTE] JMP - PC set to 0x200
+[INFO] - [READ] 0x200 - 0x40
+[INFO] - [DECODE] 0x40 - RND
+[INFO] - [READ] 0x201 - 0x01
+[INFO] - [READ] 0x202 - 0xFF
+[INFO] - [EXECUTE] RND - V1 = 80(80&255)
+[INFO] - [READ] 0x203 - 0x14
+[INFO] - [DECODE] 0x14 - SNE
+[INFO] - [READ] 0x204 - 0x01
+[INFO] - [READ] 0x205 - 0x50
+[INFO] - [EXECUTE] SNE - V1!=80 - False
+[INFO] - [READ] 0x206 - 0x10
+[INFO] - [DECODE] 0x10 - JMP
+[INFO] - [READ] 0x207 - 0x02
+[INFO] - [READ] 0x208 - 0x10
+[INFO] - [READ] (FULL) - 0x0210
+[INFO] - [EXECUTE] JMP - PC set to 0x210
+[INFO] - [READ] 0x210 - 0x01
 [INFO] - [DECODE] 0x01 - EXIT
 [CRITICAL] - [EXECUTE] EXIT - Program stoped

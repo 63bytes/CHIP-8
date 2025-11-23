@@ -25,11 +25,13 @@ def output(action, d={}):
 if WINDOW_OUT:
     chip8.output = output
 c = chip8.CHIP_8("Dump.hex", "Programs/Testing.hex")
+
 while c.stop==False:
     c.Cycle()
     if WINDOW_OUT:
         Window.update()
     sleep(0.1)
+    print(c.Cycles)
 c.DumpRam()
 
 if HOLD:

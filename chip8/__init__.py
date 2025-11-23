@@ -2,6 +2,7 @@ from pathlib import Path
 import logging
 import pygame
 import math
+from random import randint
 _BASE_DIR = Path(__file__).parent
 _ROM_F =  _BASE_DIR/"ROM.hex"
 _LOG_F = _BASE_DIR/"log.txt"
@@ -16,18 +17,9 @@ logging.basicConfig(
 def output(action, d):
     pass
 
-def _CheckBits(v,b):
-    if v>=0 and v<=(2**b)-1:
-        return True
-    else:
-        return False
+def _RndByte():
+    return randint(0,255)
 
-def _CorrectBytes(v, b=1):
-    if _CheckBits(v,b):
-        return v
-    else:
-        return 0x00
-    
 class _Byte:
     def __init__(self, v=0, b=8):
         self.LOST_PRECISION = False
@@ -175,7 +167,8 @@ class _OPCODEs:
         0x30:[0x30,"LDI",3],
         0x31:[0x31,"ADDI",2],
         0x32:[0x32,"STV",2],
-        0x33:[0x33,"LDV",2]
+        0x33:[0x33,"LDV",2],
+        0x40:[0x40,"RND",2]
     }
     def __getitem__(self,i):
         if type(i)==int:
@@ -206,7 +199,6 @@ class CHIP_8():
         if b>1:
             logging.info(f"[READ] (FULL) - 0x{d}")
         if i:
-            print(b)
             self._PC += b
         return int(d,16)
 
@@ -372,6 +364,14 @@ class CHIP_8():
         for x in range(vxn+1):
             self._Reg[x] = self._Memory[self._Reg_I + x]
         logging.info(f"[EXECUTE] STV - Values V0-V{vxn} loaded from 0x{self._Reg_I:02X}+")
+    def RND(self):
+        vxn = self.GetMemBytes()
+        vx = self._Reg[vxn]
+        kk = self.GetMemBytes()
+        r = _RndByte()
+        logging.info(f"[EXECUTE] RND - V{vxn} = {r&kk}({r}&{kk})")
+        vx[0] = r&kk
+
     def __init__(self, dumpFile, programFile):
         #Load ROM
         self.Instrucs = {
@@ -399,7 +399,8 @@ class CHIP_8():
             0x30:self.LDI,
             0x31:self.ADDI,
             0x32:self.STV,
-            0x33:self.LDV
+            0x33:self.LDV,
+            0x40:self.RND
         }
         self._PROGRAM_DATA = getBytes(programFile)
         for x in range(len(self._PROGRAM_DATA)):
@@ -410,6 +411,7 @@ class CHIP_8():
             self._Memory[x] = self._ROM_DATA[x]
         self._Memory[0xfff] = 0x01
         self.Display = Display()
+        self.Cycles = 0
         
     def Cycle(self):
         self.op = self.GetMemBytes(i=False)
@@ -435,6 +437,7 @@ class CHIP_8():
             y = bn-(math.floor(bn/32)*32)
             self.Display.Data[x][y] = data[bn]
         self.Display.Update()
+        self.Cycles += 1
 
 
     def DumpRam(self):
