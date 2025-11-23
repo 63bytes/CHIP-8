@@ -184,7 +184,9 @@ class CHIP_8():
     _Reg = _ByteList(l=0x10)
     _Reg_I = _Byte(b=16)
     _PC = _Byte(v=0x200, b=16)
-    _ST = _StackTrace()
+    _STACK = _StackTrace()
+    _DT = _Byte()
+    _ST = _Byte()
     _SKP = False
     stop = False
 
@@ -215,12 +217,12 @@ class CHIP_8():
     def CALL(self):
         ad = self.GetMemBytes(b=2)
         logging.info(f"[EXECUTE] CALL - PC set to 0x{ad:0x}. 0x{self._PC:02X} pushed to stack")
-        self._ST.add(self._PC)
+        self._STACK.add(self._PC)
         self._PC[0] = ad
     def RET(self):
-        self._PC[0] = self._ST[0]
-        logging.info(f"[EXECUTE] RET - PC set to 0x{self._ST[0]:02X}")
-        self._ST.removeFirst()
+        self._PC[0] = self._STACK[0]
+        logging.info(f"[EXECUTE] RET - PC set to 0x{self._STACK[0]:02X}")
+        self._STACK.removeFirst()
     def SE(self):
         vx = self.GetMemBytes()
         kk = self.GetMemBytes()
@@ -371,7 +373,18 @@ class CHIP_8():
         r = _RndByte()
         logging.info(f"[EXECUTE] RND - V{vxn} = {r&kk}({r}&{kk})")
         vx[0] = r&kk
-
+    def LDDT(self):
+        vx = self._Reg[self.GetMemBytes()]
+        vx[0] = self._DT
+        logging.info("[EXECUTE] LDDT - Vx set to {self._DT}")
+    def STDT(self):
+        vx = self._Reg[self.GetMemBytes()]
+        self._DT[0] = int(vx)
+        logging.info("[EXECUTE] STDT - DT set to 0x{vx:02X}")
+    def STST(self):
+        vx = self._Reg[self.GetMemBytes()]
+        self._ST[0] = int(vx)
+        logging.info("[EXECUTE] STDT - ST set to 0x{vx:02X}")
     def __init__(self, dumpFile, programFile):
         #Load ROM
         self.Instrucs = {
