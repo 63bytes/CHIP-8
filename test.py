@@ -1,3 +1,3 @@
 import keyboard
 while True:
-    print(keyboard.read_key())
+    print(ord(keyboard.read_key()))

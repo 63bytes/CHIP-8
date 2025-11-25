@@ -3,6 +3,7 @@ import logging
 import pygame
 import math
 from random import randint
+import keyboard
 _BASE_DIR = Path(__file__).parent
 _ROM_F =  _BASE_DIR/"ROM.hex"
 _LOG_F = _BASE_DIR/"log.txt"
@@ -139,8 +140,6 @@ def hexSpilt(v):
     h = f"{v:02X}"
     return int(h[0],16), int(h[1], 16)
 
-
-
 class _OPCODEs:
     DATA = {
         0x00:[0x00,"NOP",1],
@@ -168,7 +167,17 @@ class _OPCODEs:
         0x31:[0x31,"ADDI",2],
         0x32:[0x32,"STV",2],
         0x33:[0x33,"LDV",2],
-        0x40:[0x40,"RND",2]
+        0x40:[0x40,"RND",3],
+        0x50:[0x50,"LDDT",2],
+        0x51:[0x51,"STDT",2],
+        0x52:[0x52,"STST",2],
+        0x60:[0x60,"SKPK",2],
+        0x61:[0x61,"SKPNK",2],
+        0x62:[0x62,"LDK",2],
+        0x70:[0x70,"LDF",2],
+        0x71:[0x71,"BCD",2],
+        0x72:[0x72,"CLR",1],
+        0x73:[0x73,"DRW",3]
     }
     def __getitem__(self,i):
         if type(i)==int:
@@ -191,7 +200,36 @@ class CHIP_8():
     stop = False
 
     DISPLAY_MEM = 0x50
+    DISPLAY_BYTES = (32*62)/8
+    SPRITE_START = 0x0
+    SPRITE_SIZE = 0x5
+    KEYS = {
+        "0":0x0,
+        "1":0x1,
+        "2":0x2,
+        "3":0x3,
+        "4":0x4,
+        "5":0x5,
+        "6":0x6,
+        "7":0x7,
+        "8":0x8,
+        "9":0x9,
+        "a":0xA,
+        "A":0xA,
+        "b":0xB,
+        "B":0xB,
+        "c":0xC,
+        "C":0xC,
+        "d":0xD,
+        "D":0xD,
+        "e":0xE,
+        "E":0xE,
+        "f":0xF,
+        "F":0xF
+        }
 
+    def getKeyCode(self,k):
+        return self.KEYS[k]
     def GetMemBytes(self,b=1, i=True):
         d = ""
         for x in range(b):
@@ -385,6 +423,25 @@ class CHIP_8():
         vx = self._Reg[self.GetMemBytes()]
         self._ST[0] = int(vx)
         logging.info("[EXECUTE] STDT - ST set to 0x{vx:02X}")
+    def SKPK(self):
+        vx = self._Reg[self.GetMemBytes()]
+        if keyboard.is_pressed(f"vx:01X"):
+            self._SKP = True
+    def SKPNK(self):
+        vx = self._Reg[self.GetMemBytes()]
+        if not keyboard.is_pressed(f"vx:01X"):
+            self._SKP = True
+    def LDK(self):
+        vx = self._Reg[self.GetMemBytes()]
+        vx[0] = self.KEYS(keyboard.read_key())
+    def LDF(self):
+        vx = self._Reg[self.GetMemBytes()]
+        self._Reg_I[0] = (vx*self.SPRITE_SIZE)+self.SPRITE_START
+    def CLR(self):
+        for x in self.DISPLAY_BYTES:
+            self._Memory[self.DISPLAY_MEM+x] = 0x0
+    def DRW(self):
+        pass
     def __init__(self, dumpFile, programFile):
         #Load ROM
         self.Instrucs = {
@@ -413,7 +470,13 @@ class CHIP_8():
             0x31:self.ADDI,
             0x32:self.STV,
             0x33:self.LDV,
-            0x40:self.RND
+            0x40:self.RND,
+            0x50:self.LDDT,
+            0x51:self.STDT,
+            0x52:self.STST,
+            0x60:self.SKPK,
+            0x61:self.SKPNK,
+            0x62:self.LDK
         }
         self._PROGRAM_DATA = getBytes(programFile)
         for x in range(len(self._PROGRAM_DATA)):
@@ -451,7 +514,6 @@ class CHIP_8():
             self.Display.Data[x][y] = data[bn]
         self.Display.Update()
         self.Cycles += 1
-
 
     def DumpRam(self):
         open(self._DMP_F,"w").close
