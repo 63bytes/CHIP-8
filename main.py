@@ -31,7 +31,7 @@ while c.stop==False:
     if WINDOW_OUT:
         Window.update()
     sleep(0.1)
-    print(c.Cycles)
+   # print(c.Cycles)
 c.DumpRam()
 
 if HOLD:

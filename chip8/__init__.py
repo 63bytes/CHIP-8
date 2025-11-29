@@ -111,7 +111,7 @@ class Display:
         self.PIXEL_SIZE = ps
         self.HC = hc
         self.LC = lc
-        self.Data = [[1 for _ in range(self.HEIGHT)] for _ in range(self.WIDTH)]
+        self.Data = [[0 for _ in range(self.HEIGHT)] for _ in range(self.WIDTH)]
         self.screen = pygame.display.set_mode((self.WIDTH*self.PIXEL_SIZE, self.HEIGHT*self.PIXEL_SIZE))
         pygame.display.set_caption("Display")
     def Update(self):
@@ -128,6 +128,10 @@ class Display:
                     (x * self.PIXEL_SIZE, y * self.PIXEL_SIZE, self.PIXEL_SIZE, self.PIXEL_SIZE)
                 )
         pygame.display.flip()
+    def writeBytes(self, b, x,y):
+        bs = f"{(b&0xff):08b}"
+        for i in range(len(bs)):
+            self.Data[(x+i)][y] = int(bs[i])
 
 def getBytes(f):
     l = []
@@ -141,6 +145,7 @@ def hexSpilt(v):
     return int(h[0],16), int(h[1], 16)
 
 class _OPCODEs:
+    
     DATA = {
         0x00:[0x00,"NOP",1],
         0x01:[0x01,"EXIT",1],
@@ -435,13 +440,20 @@ class CHIP_8():
         vx = self._Reg[self.GetMemBytes()]
         vx[0] = self.KEYS(keyboard.read_key())
     def LDF(self):
-        vx = self._Reg[self.GetMemBytes()]
+        print("LDF")
+        vx = self.GetMemBytes()
         self._Reg_I[0] = (vx*self.SPRITE_SIZE)+self.SPRITE_START
     def CLR(self):
         for x in self.DISPLAY_BYTES:
             self._Memory[self.DISPLAY_MEM+x] = 0x0
     def DRW(self):
-        pass
+        print("DRW")
+        vx = self.GetMemBytes()
+        vy = self.GetMemBytes()
+        n = self.GetMemBytes()
+        for x in range(int(n)):
+            self.Display.writeBytes(self._Memory[self._Reg_I+x],int(vx),int(vy)+x)
+
     def __init__(self, dumpFile, programFile):
         #Load ROM
         self.Instrucs = {
@@ -476,7 +488,11 @@ class CHIP_8():
             0x52:self.STST,
             0x60:self.SKPK,
             0x61:self.SKPNK,
-            0x62:self.LDK
+            0x62:self.LDK,
+            0x70:self.LDF,
+            #0x71:self.BCD,
+            0x72:self.CLR,
+            0x73:self.DRW
         }
         self._PROGRAM_DATA = getBytes(programFile)
         for x in range(len(self._PROGRAM_DATA)):
@@ -498,20 +514,20 @@ class CHIP_8():
             return
         else:
             self._PC +=  1
-
+        print(f"0x{self.op:02X}")
         output(action="DECODE",d={"val":self.op,"ins":OpCodes[self.op][1]})
         logging.info(f"[DECODE] 0x{self.op:02X} - {OpCodes[self.op][1]}")
         self.Instrucs[self.op]()
         data = []
-        for bn in range(int(32*64/8)):
-            bi = self._Memory[self.DISPLAY_MEM+bn]
-            bb = f"{bi:08b}"
-            for i in bb:
-                data.append(int(i))
-        for bn in range(32*64):
-            x = math.floor(bn/32)
-            y = bn-(math.floor(bn/32)*32)
-            self.Display.Data[x][y] = data[bn]
+       # for bn in range(int(32*64/8)):
+     #       bi = self._Memory[self.DISPLAY_MEM+bn]
+     #       bb = f"{bi:08b}"
+      #      for i in bb:
+     #           data.append(int(i))
+     #   for bn in range(32*64):
+     #       x = math.floor(bn/32)
+     #       y = bn-(math.floor(bn/32)*32)
+     #       self.Display.Data[x][y] = data[bn]
         self.Display.Update()
         self.Cycles += 1
 
