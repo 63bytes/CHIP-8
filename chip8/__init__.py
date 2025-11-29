@@ -457,6 +457,11 @@ class CHIP_8():
     def __init__(self, dumpFile, programFile):
         #Load ROM
         self.Instrucs = {
+            0xffff:{
+                #
+            }
+        }
+        self.Instrucs = {
             0x00:self.NOP,
             0x01:self.EXIT,
             0x10:self.JMP,
